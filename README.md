@@ -46,7 +46,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
 
 3. **Linking the Heroku application with your Org**
 
-    We have predeployed the action code to Heroku for you.
+    We have predeployed the action code to Heroku for you, however if you want to review it you can do so [here](https://github.com/heroku-examples/heroku-tdx25-minihack-code).
     
     The action code uses Heroku AppLink to seamlessly access customer and car data within the org, as well as several external services.
     
