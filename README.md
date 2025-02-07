@@ -1,18 +1,19 @@
 # TDX25 - Heroku at Camp Mini Hacks - Instructions
 
-Instructions to be intregrated into the TDX Camp Mini Hacks
+> [!IMPORTANT]
+> These instructions are work in progress and intended to be integrated into an upcoming TDX 2025 minihack.
 
 ## Use Case and Why Heroku?
 
-We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via Heroku AppLink integration, enabling Apex, Flow, and Agentforce to access compute-intensive finance agreement calculations. This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, AI-driven financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
+We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via Heroku AppLink integration, enabling Apex, Flow, and Agentforce to access compute-intensive finance agreement calculations. This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
 
 ## Requirements
 
 - Access to a Salesforce Org with Agentforce enabled
 - Access to a Heroku environment enrolled in the `tdx25-minihack` Heroku team
-- Latest Salesforce CLI installed
-- Latest Heroku CLI installed
-- Latest Heroku AppLink CLI Plugin installed
+- Latest Salesforce CLI installed [link](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
+- Latest Heroku CLI installed [link](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
+- Latest Heroku AppLink CLI Plugin installed [link](https://devcenter.heroku.com/articles/heroku-integration-cli)
 
 ## Steps
 
@@ -106,7 +107,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     My customer XYX123 is wanting to purchase a car ABC456. The price is $25,000 and they have a downpayment of $1000. The interest rate is 5% and they want the term to be over 3 years. Can you give me the finance information for this and let me know if it is competitive with other services?
     `
 
-    <img src="images/agentresponse.jpg" width="80%">
+    <img src="images/agent.jpg" width="80%">
 
 ## JSON Reqest for Heroku Action
 
