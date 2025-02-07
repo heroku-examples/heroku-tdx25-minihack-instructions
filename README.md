@@ -42,7 +42,6 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     heroku salesforce:connect my-org-yourname --app tdx25-minihack-calcfinance --store-as-run-as-user 
     ```
 
-    > [!IMPORTANT]
     > Replace `yourname` in the command above, for example, for Chris Wall use `my-org-cwall`
 
 3. **Linking the Heroku application with your Org**
@@ -56,8 +55,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     ```
     heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-calcfinance --client-name CalculateFinanceAction
     ```
-    
-    > [!IMPORTANT]
+
     > As per the last step be sure to edit `my-org-yourname` in the command above
 
     Navigate to **Heroku** under the **Setup** to confirm the application has been linked.
@@ -75,8 +73,6 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     ```
     sf org assign permset --name CalculateFinanceAction -o my-org
     ```
-
-    > [!IMPORTANT]
     > The above command assumes you have already authenticated your org with the `sf` CLI using an alias of `my-org`. If this is note the case use the `sf org login web --alias my-org` command to authenticate and then run the above command.
 
 4. **Creating an Agentforce Action**
