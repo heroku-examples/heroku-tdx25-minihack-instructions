@@ -105,7 +105,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
 
     <img src="images/agent.jpg" width="80%">
 
-## JSON Reqest for Heroku Action
+## JSON Request for Heroku Action
 
 ```
 {
@@ -131,7 +131,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
 }
 ```
 
-## JSON Resposne from Heroku Action
+## JSON Response from Heroku Action
 
 ```
 {
