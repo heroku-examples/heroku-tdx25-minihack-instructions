@@ -1,0 +1,14 @@
+{
+  "required" : [ "Request" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Request" : {
+      "title" : "Request",
+      "description" : "Request to compute a finance agreement for a car purchase, including the Salesforce record ID of both the customer applying for financing and the car being financed.",
+      "lightning:type" : "@apexClassType/ExternalService__ActionsService_FinanceCalculationRequest?isAuraEnabled=true",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

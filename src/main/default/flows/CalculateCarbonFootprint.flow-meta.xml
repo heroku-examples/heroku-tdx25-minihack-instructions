@@ -56,14 +56,14 @@
     <variables>
         <description>Request to calculate the carbon footprint of a flight, including the Salesforce record ID of the flight being analyzed.</description>
         <name>Request</name>
-        <apexClass>ExternalService__ActionsService_CarbonFootrintRequest</apexClass>
+        <apexClass>ExternalService__ActionsService_CarbonFootprintRequest</apexClass>
         <dataType>Apex</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <description>Response containing the calculated carbon footprint for the flight.</description>
+        <description>Response containing the calculated carbon footprint for the flight. Describe the results in natural language text to the user.</description>
         <name>Response</name>
         <apexClass>ExternalService__ActionsService_CarbonFootprintResponse</apexClass>
         <dataType>Apex</dataType>

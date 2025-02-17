@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Response" : {
+      "title" : "Response",
+      "description" : "Response containing the calculated finance agreement. Describe the results in natural language text to the user.",
+      "lightning:type" : "@apexClassType/ExternalService__ActionsService_FinanceCalculationResponse?isAuraEnabled=true",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

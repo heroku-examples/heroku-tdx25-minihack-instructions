@@ -63,7 +63,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <description>Response containing the calculated finance agreement, car details, profitability analysis, and counter-offer.</description>
+        <description>Response containing the calculated finance agreement. Describe the results in natural language text to the user.</description>
         <name>Response</name>
         <apexClass>ExternalService__ActionsService_FinanceCalculationResponse</apexClass>
         <dataType>Apex</dataType>

@@ -63,7 +63,7 @@
         <isOutput>false</isOutput>
     </variables>
     <variables>
-        <description>Response containing the calculated shipping options for the given product.</description>
+        <description>Response containing the calculated shipping options for the given product. Describe the results in natural language text to the user.</description>
         <name>Response</name>
         <apexClass>ExternalService__ActionsService_CalculateShippingOptionsResponse</apexClass>
         <dataType>Apex</dataType>

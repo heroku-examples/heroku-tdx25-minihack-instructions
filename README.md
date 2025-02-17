@@ -5,22 +5,22 @@
 
 ## Use Case and Why Heroku?
 
-With Heroku AppLink, we're enhancing the following agents with Heroku-powered Agentforce Actions, allowing Apex, Flow, and Agentforce to run custom code to perform complex, compute-intensive calculations on Heroku’s scalable managed infrastructure.
+In this workshop we're enhancing several agents with custom code written in languages of your choice, with **Heroku** and [Heroku AppLink](https://devcenter.heroku.com/articles/getting-started-heroku-integration), allowing **Apex**, **Flow**, and **Agentforce** to perform complex, compute-intensive calculations on Heroku’s scalable managed infrastructure.
 
 > [!NOTE]
 > The steps below do not require you to build or deploy the associated Heroku application, this has already been done for you. However if you want to later review the source code for these actions you can do so through [this](https://github.com/heroku-examples/heroku-tdx25-minihack-code) repository.
 
 ### Astro Airlines Travel Agent
 bla
-<p><img src="images/astro-airlines-action.jpg" width="70%">
+<p><img src="images/agent-response-karbon-calc.jpg" width="30%">
 
 ### Trailblazer Outfitters Retail Agent
 bla
-<p><img src="images/outfitters-retail-action.jpg" width="70%">
+<p><img src="images/agent-response-shipping-calc.jpg" width="30%">
 
 ### Koa Car Agent
 This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
-<p><img src="images/koa-car-action.jpg" width="70%">
+<p><img src="images/agent-response-finance-calc.jpg" width="30%">
 
 ## Requirements
 
@@ -30,7 +30,7 @@ This Action dynamically evaluates real-time car valuations from industry sources
 - Latest Heroku CLI installed [link](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
 - Latest Heroku AppLink CLI Plugin installed [link](https://devcenter.heroku.com/articles/heroku-integration-cli)
 
-## Steps
+## Steps for All Agents
 
 1. **Logging into Heroku**
 
@@ -79,8 +79,6 @@ This Action dynamically evaluates real-time car valuations from industry sources
 
     <img src="images/operation.jpg" width="80%">
 
-    Congrulations you have just brought the power of Heroku into your Salefsorce org and to the finger tips of your developers and admins!
-
     In the following steps you will configure an Agentforce Action for one of the above operations.
 
 4. **Grant Permissions to the Heroku application**
@@ -97,38 +95,50 @@ This Action dynamically evaluates real-time car valuations from industry sources
     At this time Heroku actions need a small Flow wrapper in order to be accessible from Agentforce, deploy these using the command below:
 
     ```
-    sf project deploy start -o my-org
+    sf project deploy start --metadata Flow -o my-org
     ```
 
     > [!NOTE]
     > Support for Heroku applications without Flow wrappers is currently being rolled out. This step will be removed once this is complete. The goal is to have this step removed ahead of Salesforce TDX.
 
-4. **Creating an Agentforce Action**
+## Add an action to the Astro Airlines Travel Agent
 
-    Your Heroku application is now availble to Apex and Flow users to use as they would any other platform action.
+1. **Step**
+
+    bla
+
+## Add an action to the Trailblazer Outfitters Retail Agent
+
+1. **Step**
+
+    bla
+
+## Add an action to the Koa Car Agent
+
+1. **Creating an Agentforce Action**
 
     To create an Agentforce Action search for **Agent Actions** under **Setup** to navigate to the **Agent Actions** page.
 
-    Click **New Agent Action** in the top right corner, select **API**, then **Heroku** and search for `ActionsService`.
+    Click **New Agent Action** in the top right corner, select **Flow**, search for **Calculate Finance Agreement**.
 
     Select the action and click **Next**, complete the checkboxes as shown below and click **Finish** 
 
-    <img src="images/addaction.jpg" width="80%">
+    <img src="images/agent-action-finance-calc.jpg" width="50%">
 
-5. **Adding an Action to an Agent**
+2. **Adding an Action to an Agent**
 
-    Navigate **Agents** under the **Setup** menu and open the *Einstein Copilot** agent in **Agent Builder**.
+    Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**.
 
-    Go to the **Customer Service Assistant**, click on the **Topics** tab and click **New**, selecting **From Assest Library**
+    Click on the **Topics** tab, and **Koa Cars Sales Agent**, in the **This Topic's Actions** tab, click New > Add from Asset Library.
 
-    Locate the **ActionsService** and add it to the topic.
+    Search for **Calculate Finance Agreement**, select it and click **Finish**.
     
-6. **Testing your Heroku Action**
+3. **Testing your Heroku Action**
 
     In **Agent Builder** enter the following to invoke your action.
 
     `
-    My customer XYX123 is wanting to purchase a car ABC456. The price is $25,000 and they have a downpayment of $1000. The interest rate is 5% and they want the term to be over 3 years. Can you give me the finance information for this and let me know if it is competitive with other services?
+    I want to buy a car with a $1,000 down payment, a max 5% interest rate, and a term over 3 years. Can you provide a competitive finance estimate?
     `
 
-    <img src="images/agent.jpg" width="80%">
+    <img src="images/agent-response-finance-calc.jpg" width="30%">
