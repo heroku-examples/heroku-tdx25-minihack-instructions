@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Calculate_Shipping_Options</name>
+        <label>Calculate Shipping Options</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <actionName>ActionsService.calculateShippingOptions</actionName>
+        <actionType>externalService</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>Request</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>ActionsService.calculateShippingOptions</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>Response</assignToReference>
+            <name>200</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <description>Calculates the shipping options for a product given external data.</description>
+    <environments>Default</environments>
+    <interviewLabel>Calculate Shipping Options {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Calculate Shipping Options</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Calculate_Shipping_Options</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Request to determine shipping options for a product, including the Salesforce record ID of the product being shipped.</description>
+        <name>Request</name>
+        <apexClass>ExternalService__ActionsService_CalculateShippingOptionsRequest</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Response containing the calculated shipping options for the given product.</description>
+        <name>Response</name>
+        <apexClass>ExternalService__ActionsService_CalculateShippingOptionsResponse</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

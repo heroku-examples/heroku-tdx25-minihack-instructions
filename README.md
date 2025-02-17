@@ -5,7 +5,22 @@
 
 ## Use Case and Why Heroku?
 
-We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via Heroku AppLink integration, enabling Apex, Flow, and Agentforce to access compute-intensive finance agreement calculations. This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
+With Heroku AppLink, we're enhancing the following agents with Heroku-powered Agentforce Actions, allowing Apex, Flow, and Agentforce to run custom code to perform complex, compute-intensive calculations on Heroku’s scalable managed infrastructure.
+
+> [!NOTE]
+> The steps below do not require you to build or deploy the associated Heroku application, this has already been done for you. However if you want to later review the source code for these actions you can do so through [this](https://github.com/heroku-examples/heroku-tdx25-minihack-code) repository.
+
+### Astro Airlines Travel Agent
+bla
+<p><img src="images/astro-airlines-action.jpg" width="70%">
+
+### Trailblazer Outfitters Retail Agent
+bla
+<p><img src="images/outfitters-retail-action.jpg" width="70%">
+
+### Koa Car Agent
+This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
+<p><img src="images/koa-car-action.jpg" width="70%">
 
 ## Requirements
 
@@ -39,7 +54,7 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     Run the command below and when prompted enter the user and password for your org and accept the required permissions prompt:
     
     ```
-    heroku salesforce:connect my-org-yourname --app tdx25-minihack-calcfinance --store-as-run-as-user 
+    heroku salesforce:connect my-org-yourname --app tdx25-minihack-actions --store-as-run-as-user 
     ```
 
     > Replace `yourname` in the command above, for example, for Chris Wall use `my-org-cwall`
@@ -50,10 +65,10 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     
     The action code uses Heroku AppLink to seamlessly access customer and car data within the org, as well as several external services.
     
-    Run the following command to link the Heroku app with your org:
+    Run the following command to link the Heroku appc containing several actions with your org:
     
     ```
-    heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-calcfinance --client-name CalculateFinanceAction
+    heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-actions --client-name ActionsService
     ```
 
     > As per the last step be sure to edit `my-org-yourname` in the command above
@@ -66,14 +81,27 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
 
     Congrulations you have just brought the power of Heroku into your Salefsorce org and to the finger tips of your developers and admins!
 
+    In the following steps you will configure an Agentforce Action for one of the above operations.
+
 4. **Grant Permissions to the Heroku application**
 
     Ensure your Salefsorce user has permission to invoke the applicaiton logic.
 
     ```
-    sf org assign permset --name CalculateFinanceAction -o my-org
+    sf org assign permset --name ActionsService -o my-org
     ```
     > The above command assumes you have already authenticated your org with the `sf` CLI using an alias of `my-org`. If this is note the case use the `sf org login web --alias my-org` command to authenticate and then run the above command.
+
+5. **Deploy to your Salesforce org**
+
+    At this time Heroku actions need a small Flow wrapper in order to be accessible from Agentforce, deploy these using the command below:
+
+    ```
+    sf project deploy start -o my-org
+    ```
+
+    > [!NOTE]
+    > Support for Heroku applications without Flow wrappers is currently being rolled out. This step will be removed once this is complete. The goal is to have this step removed ahead of Salesforce TDX.
 
 4. **Creating an Agentforce Action**
 
@@ -81,19 +109,19 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
 
     To create an Agentforce Action search for **Agent Actions** under **Setup** to navigate to the **Agent Actions** page.
 
-    Click **New Agent Action** in the top right corner, select **API**, then **Heroku** and search for `CalculateFinanceAction`.
+    Click **New Agent Action** in the top right corner, select **API**, then **Heroku** and search for `ActionsService`.
 
     Select the action and click **Next**, complete the checkboxes as shown below and click **Finish** 
 
     <img src="images/addaction.jpg" width="80%">
 
-5. **Adding the Action to the Agent**
+5. **Adding an Action to an Agent**
 
     Navigate **Agents** under the **Setup** menu and open the *Einstein Copilot** agent in **Agent Builder**.
 
     Go to the **Customer Service Assistant**, click on the **Topics** tab and click **New**, selecting **From Assest Library**
 
-    Locate the **CalculateFinanceAction** and add it to the topic.
+    Locate the **ActionsService** and add it to the topic.
     
 6. **Testing your Heroku Action**
 
@@ -104,84 +132,3 @@ We are extending the eCars Car Agent with a Heroku-powered Agentforce Action via
     `
 
     <img src="images/agent.jpg" width="80%">
-
-## JSON Reqest for Heroku Action
-
-```
-{
-  "customer_id": "0035g00000XyZbHAZ",
-  "car_id": "a0B5g00000LkVnWEAV",
-  "business_margins": {
-    "dealer_markup_percentage": 5.0,
-    "min_profit_margin": 2000,
-    "max_discount": 1500
-  },
-  "competitor_pricing": [
-    {
-      "dealer": "AutoTrader",
-      "price": 41500,
-      "loan_rate": 3.5
-    },
-    {
-      "dealer": "Carvana",
-      "price": 42800,
-      "loan_rate": 3.7
-    }
-  ]
-}
-```
-
-## JSON Resposne from Heroku Action
-
-```
-{
-  "customer_id": "0035g00000XyZbHAZ",
-  "car_details": {
-    "car_id": "a0B5g00000LkVnWEAV",
-    "make": "Tesla",
-    "model": "Model 3",
-    "year": 2022,
-    "mileage": 15000,
-    "market_value": 42000,
-    "trade_in_value": 35000
-  },
-  "recommended_finance_offer": {
-    "final_car_price": 41800,
-    "adjusted_interest_rate": 3.4,
-    "monthly_payment": 690.50,
-    "loan_term_months": 60,
-    "total_financing_cost": 41430.00,
-    "competitor_comparison": {
-      "is_competitive": true,
-      "cheapest_competitor": {
-        "dealer": "AutoTrader",
-        "price": 41500,
-        "loan_rate": 3.5
-      }
-    }
-  },
-  "profit_analysis": {
-    "profit_margin": 2150,
-    "meets_min_profit_requirement": true
-  },
-  "counter_offer": {
-    "adjusted_car_price": 41400,
-    "new_interest_rate": 3.3,
-    "monthly_payment": 680.75,
-    "rationale": "Reduced price slightly while maintaining minimum profit margin of $2000 to stay competitive."
-  },
-  "decision_rationale": {
-    "pricing_strategy": "Slight undercut on Carvana, matched AutoTrader with better loan rate",
-    "customer_affordability_score": 85,
-    "approval_status": "Approved"
-  },
-  "retrieved_customer_credit_profile": {
-    "credit_profile_id": "a1A5g00000PjQhPEAV",
-    "credit_score": 720,
-    "loan_approval_status": "pre-approved",
-    "down_payment": 5000,
-    "loan_term_months": 60,
-    "interest_rate": 3.4
-  }
-}
-```
