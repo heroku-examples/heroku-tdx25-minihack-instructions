@@ -12,11 +12,11 @@ In this workshop we're enhancing several agents with custom code written in lang
 
 ### Astro Airlines Travel Agent
 bla
-<p><img src="images/agent-response-karbon-calc.jpg" width="70%">
+<p><img src="images/agent-response-karbon-calc.jpg">
 
 ### Trailblazer Outfitters Retail Agent
 bla
-<p><img src="images/agent-response-shipping-calc.jpg" width="70%">
+<p><img src="images/agent-response-shipping-calc.jpg">
 
 ### Koa Car Agent
 This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
@@ -75,9 +75,9 @@ This Action dynamically evaluates real-time car valuations from industry sources
 
     Navigate to **Heroku** under the **Setup** to confirm the application has been linked.
 
-    <img src="images/applink.jpg" width="70%">
+    <img src="images/applink.jpg">
 
-    <img src="images/operation.jpg" width="70%">
+    <img src="images/operation.jpg">
 
     In the following steps you will configure an Agentforce Action for one of the above operations.
 
@@ -123,7 +123,7 @@ This Action dynamically evaluates real-time car valuations from industry sources
 
     Select the action and click **Next**, complete the checkboxes as shown below and click **Finish** 
 
-    <img src="images/agent-action-finance-calc.jpg" width="70%">
+    <img src="images/agent-action-finance-calc.jpg">
 
 2. **Adding an Action to an Agent**
 
@@ -141,4 +141,4 @@ This Action dynamically evaluates real-time car valuations from industry sources
     I want to buy a car with a $1,000 down payment, a max 5% interest rate, and a term over 3 years. Can you provide a competitive finance estimate?
     `
 
-    <img src="images/agent-response-finance-calc.jpg" width="70%">
+    <img src="images/agent-response-finance-calc.jpg">
