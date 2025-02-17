@@ -20,7 +20,7 @@ bla
 
 ### Koa Car Agent
 This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
-<p><img src="images/agent-response-finance-calc.jpg" width="70%">
+<p><img src="images/agent-response-finance-calc.jpg">
 
 ## Requirements
 
