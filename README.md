@@ -3,24 +3,10 @@
 > [!IMPORTANT]
 > These instructions are work in progress and intended to be integrated into an upcoming TDX 2025 minihack.
 
-## Use Case and Why Heroku?
-
 In this workshop we're enhancing several agents with custom code written in languages of your choice, with **Heroku** and [Heroku AppLink](https://devcenter.heroku.com/articles/getting-started-heroku-integration), allowing **Apex**, **Flow**, and **Agentforce** to perform complex, compute-intensive calculations on Heroku’s scalable managed infrastructure.
 
 > [!NOTE]
 > The steps below do not require you to build or deploy the associated Heroku application, this has already been done for you. However if you want to later review the source code for these actions you can do so through [this](https://github.com/heroku-examples/heroku-tdx25-minihack-code) repository.
-
-### Astro Airlines Travel Agent
-bla
-<p><img src="images/agent-response-karbon-calc.jpg">
-
-### Trailblazer Outfitters Retail Agent
-bla
-<p><img src="images/agent-response-shipping-calc.jpg">
-
-### Koa Car Agent
-This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
-<p><img src="images/agent-response-finance-calc.jpg">
 
 ## Requirements
 
@@ -92,28 +78,81 @@ This Action dynamically evaluates real-time car valuations from industry sources
 
 5. **Deploy to your Salesforce org**
 
-    At this time Heroku actions need a small Flow wrapper in order to be accessible from Agentforce, deploy these using the command below:
+    Heroku actions need a small Flow wrapper in order to be used with Agentforce, deploy these using the command below:
 
     ```
     sf project deploy start --metadata Flow -o my-org
     ```
 
-    > [!NOTE]
-    > Support for Heroku applications without Flow wrappers is currently being rolled out. This step will be removed once this is complete. The goal is to have this step removed ahead of Salesforce TDX.
+    > Support using Heroku applications directly with Agentforce is being rolled out to our service, this step will be removed once this is complete.
 
 ## Add an action to the Astro Airlines Travel Agent
 
-1. **Step**
+This Action uses flight informaton from Salesforce and information on CO2 emissions to give the user an estimate on how much CO2 will be used on their flight. Heroku can integrate real time with environmental data APIs (ICAO Carbon Emissions Calculator, Google Flights API (carbon estimates), IATA CO Data), collate and query flight data in memory to calculate CO₂ emissions per route, per traveler, per aircraft type, and distance traveled.
 
-    bla
+1. **Creating an Agentforce Action**
+
+    To create an Agentforce Action search for **Agent Actions** under **Setup** to navigate to the **Agent Actions** page.
+
+    Click **New Agent Action** in the top right corner, select **Flow**, search for **Calculate Carbon Footprint**.
+
+    Select the action and click **Next**, complete the checkboxes as shown below and click **Finish** 
+
+    <img src="images/agent-action-carbon-calc.jpg">
+
+2. **Adding an Action to an Agent**
+
+    Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**.
+
+    Click on the **Topics** tab, and **Koa Cars Sales Agent**, in the **This Topic's Actions** tab, click **New** > **Add from Asset Library**.
+
+    Search for **Calculate Carbon Footprint**, select it and click **Finish**.
+    
+3. **Testing your Heroku Action**
+
+    In **Agent Builder** enter the following to invoke your action.
+
+    `
+    What is the total carbon footprint for my upcoming flight?
+    `
+
+    <img src="images/agent-response-carbon-calc.jpg">
 
 ## Add an action to the Trailblazer Outfitters Retail Agent
 
-1. **Step**
+This action retrieves information about the product, including its size and weight. Using a selection of approved shipping companies, it dynamically calls their respective APIs. It then collates the shipping costs and timelines in memory and returns them to Agentforce along with a recommendation.
 
-    bla
+1. **Creating an Agentforce Action**
+
+    To create an Agentforce Action search for **Agent Actions** under **Setup** to navigate to the **Agent Actions** page.
+
+    Click **New Agent Action** in the top right corner, select **Flow**, search for **Calculate Shipping Options**.
+
+    Select the action and click **Next**, complete the checkboxes as shown below and click **Finish** 
+
+    <img src="images/agent-action-shipping-calc.jpg">
+
+2. **Adding an Action to an Agent**
+
+    Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**.
+
+    Click on the **Topics** tab, and **Koa Cars Sales Agent**, in the **This Topic's Actions** tab, click **New** > **Add from Asset Library**.
+
+    Search for **Calculate Shipping Options**, select it and click **Finish**.
+    
+3. **Testing your Heroku Action**
+
+    In **Agent Builder** enter the following to invoke your action.
+
+    `
+    Can you recommend shipping options to get my item within a week for under $50 dollars?
+    `
+
+    <img src="images/agent-response-shipping-calc.jpg">
 
 ## Add an action to the Koa Car Agent
+
+This Action dynamically evaluates real-time car valuations from industry sources (AutoTrader, Edmunds, KBB), assesses user credit status via finance APIs, and optimizes business margins while ensuring competitiveness against other car sellers. By leveraging Heroku’s scalable processing power, Agentforce-powered agents can make real-time, financing decisions, delivering personalized finance offers within Salesforce and empowering both dealers and buyers with transparent, competitive financing options.
 
 1. **Creating an Agentforce Action**
 
@@ -129,7 +168,7 @@ This Action dynamically evaluates real-time car valuations from industry sources
 
     Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**.
 
-    Click on the **Topics** tab, and **Koa Cars Sales Agent**, in the **This Topic's Actions** tab, click New > Add from Asset Library.
+    Click on the **Topics** tab, and **Koa Cars Sales Agent**, in the **This Topic's Actions** tab, click **New** > **Add from Asset Library**.
 
     Search for **Calculate Finance Agreement**, select it and click **Finish**.
     

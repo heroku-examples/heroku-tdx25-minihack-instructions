@@ -1,0 +1,14 @@
+{
+  "required" : [ "Request" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Request" : {
+      "title" : "Request",
+      "description" : "Request to calculate the carbon footprint of a flight, including the Salesforce record ID of the flight being analyzed.",
+      "lightning:type" : "@apexClassType/ExternalService__ActionsService_CarbonFootprintRequest?isAuraEnabled=true",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

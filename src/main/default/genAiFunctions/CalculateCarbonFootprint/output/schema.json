@@ -1,0 +1,14 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Response" : {
+      "title" : "Response",
+      "description" : "Response containing the calculated carbon footprint for the flight. Describe the results in natural language text to the user.",
+      "lightning:type" : "@apexClassType/ExternalService__ActionsService_CarbonFootprintResponse?isAuraEnabled=true",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

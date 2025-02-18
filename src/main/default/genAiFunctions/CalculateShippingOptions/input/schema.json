@@ -1,0 +1,14 @@
+{
+  "required" : [ "Request" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Request" : {
+      "title" : "Request",
+      "description" : "Request to determine shipping options for a product, including the Salesforce record ID of the product being shipped.",
+      "lightning:type" : "@apexClassType/ExternalService__ActionsService_CalculateShippingOptionsRequest?isAuraEnabled=true",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
