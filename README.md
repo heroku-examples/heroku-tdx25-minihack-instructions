@@ -15,10 +15,11 @@ In this workshop, we're enhancing several agents with custom code written in lan
 - The latest Salesforce CLI installed [link](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm).
 - The latest Heroku CLI installed [link](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli).
 - The latest Heroku AppLink CLI Plugin installed [link](https://devcenter.heroku.com/articles/heroku-integration-cli).
+- The `git` CLI
 
 ## Steps for All Agents
 
-1. **Logging into Heroku**
+1. **Logging into Heroku and Cloning the Repository**
 
     Log in to Heroku and confirm that you have access to the required Heroku team:
     
@@ -33,6 +34,12 @@ In this workshop, we're enhancing several agents with custom code written in lan
     Team             Role         
     ──────────────── ──────────── 
     tdx25-minihack   collaborator            
+    ```
+    Clone this repository and change to the directory created: 
+
+    ```sh
+    git clone https://github.com/heroku-examples/heroku-tdx25-minihack-instructions
+    cd heroku-tdx25-minihack-instructions
     ```
 
 2. **Connecting Heroku to Your Org**
