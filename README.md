@@ -80,7 +80,7 @@ In this workshop we're enhancing several agents with custom code written in lang
     sf project deploy start --metadata Flow -o my-org
     ```
 
-    > Support using Heroku applications directly with Agentforce is being rolled out to our service, this step will be removed once this is complete.
+    > Support for using Heroku applications directly with Agentforce is being rolled out to our service, this step will be removed once this is complete.
 
 ## Add an action to the Astro Airlines Travel Agent
 
