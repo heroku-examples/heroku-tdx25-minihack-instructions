@@ -72,13 +72,7 @@ In this workshop, we're enhancing several agents with custom code written in lan
 
 4. **Grant Permissions to the Heroku Application**
 
-    Ensure your Salesforce user has permission to invoke the application logic.
-
-    ```sh
-    sf org assign permset --name ActionsService -o my-org
-    ```
-
-    > The above command assumes you have already authenticated your org with the `sf` CLI using an alias of `my-org`. If this is not the case, use the `sf org login web --alias my-org` command to authenticate and then run the above command.
+    Ensure the Agent user has permission to invoke the Heroku application imported above. Search for **Permission Set Groups** under **Setup** and open the `TDX25 Minihacks Agent Access` permission set group. Add the `ActionsService` permission set to the group.
 
 5. **Deploy to Your Salesforce Org**
 
@@ -87,6 +81,7 @@ In this workshop, we're enhancing several agents with custom code written in lan
     ```sh
     sf project deploy start --metadata Flow -o my-org
     ```
+    > The above command assumes you have already authenticated your org with the `sf` CLI using an alias of `my-org`. If this is not the case, use the `sf org login web --alias my-org` command to authenticate with this alias or your chosen alias.
 
     > Support for using Heroku applications directly with Agentforce is being rolled out to our service. This step will be removed once this is complete.
 
@@ -109,7 +104,13 @@ This action uses flight information from Salesforce and CO₂ emissions data to 
     In **Agent Builder**, enter the following to invoke your action:
 
     ```
-    What is the total carbon footprint for my upcoming flight?
+    I want to travel from SFO to LAX
+    ```
+
+    Agent lists the available flights for the user to choose.
+
+    ```
+    What is the total carbon footprint for flight 1?
     ```
 
     <img src="images/agent-response-carbon-calc.jpg">
@@ -133,7 +134,13 @@ This action retrieves product information, including size and weight. It dynamic
     Enter the following in **Agent Builder**:
 
     ```
-    Can you recommend shipping options to get my item within a week for under $50?
+    I am looking for warm clothes?
+    ```
+
+    Agent responds with a list of options, enter the following:
+
+    ```
+    Can you recommend shipping options for item 1 so that I receive it within a week for under $50?
     ```
 
     <img src="images/agent-response-shipping-calc.jpg">
@@ -158,6 +165,20 @@ This action evaluates real-time car valuations from industry sources (AutoTrader
 
     ```
     I want to buy a car with a $1,000 down payment, a max 5% interest rate, and a term over 3 years. Can you provide a competitive finance estimate?
+    ```
+
+    When the Agent requests further information enter the following:
+
+    ```
+    My email is johndoe@codey.com
+    ```
+
+    ```
+    I like make Zig model M3
+    ```
+
+    ```
+    I choose 1
     ```
 
     <img src="images/agent-response-finance-calc.jpg">
