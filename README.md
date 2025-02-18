@@ -47,7 +47,7 @@ In this workshop we're enhancing several agents with custom code written in lang
 
 3. **Linking the Heroku application with your Org**
 
-    The action code uses **Heroku AppLink** to seamlessly access customer and car data within the org, as well as several external internet services. Run the following command to link the Heroku appc containing several actions with your org:
+    The action code uses **Heroku AppLink** to seamlessly access data within the org. Run the following command to link the Heroku app to your org:
     
     ```
     heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-actions --client-name ActionsService
