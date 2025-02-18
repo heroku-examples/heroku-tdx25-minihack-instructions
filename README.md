@@ -10,7 +10,7 @@ In this workshop we're enhancing several agents with custom code written in lang
 
 ## Requirements
 
-- Access to a Salesforce Org with Agentforce enabled
+- Access to a Salesforce Org with Agentforce enabled and the TDX minihack objects and apps deployed
 - Access to a Heroku environment enrolled in the `tdx25-minihack` Heroku team
 - Latest Salesforce CLI installed [link](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
 - Latest Heroku CLI installed [link](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli)
