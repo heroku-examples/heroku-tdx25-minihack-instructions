@@ -60,6 +60,8 @@ In this workshop, we're enhancing several agents with custom code written in lan
     heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-actions --client-name ActionsService
     ```
 
+    > **TEMPORARY STEP REMOVE FOR TDX:** Find the `ActionsService` under **Named Credentials** and check the **URL** field is set to `https://tdx25-minihack-actions-3b047f6da5d2.herokuapp.com/`
+
     > As per the last step, be sure to edit `my-org-yourname` in the command above.
 
     Navigate to **Heroku** under **Setup** to confirm that the application has been linked.
@@ -73,6 +75,8 @@ In this workshop, we're enhancing several agents with custom code written in lan
 4. **Grant Permissions to the Heroku Application**
 
     Ensure the Agent user has permission to invoke the Heroku application imported above. Search for **Permission Set Groups** under **Setup** and open the `TDX25 Minihacks Agent Access` permission set group. Add the `ActionsService` permission set to the group.
+
+    >  **TEMPORARY STEP REMOVE FOR TDX:** If the above **Permission Set Group** does not exist in your org, locate the `ActionsService` permission set and click *Manage Assignments*, then search for and add the `EinsteinServiceAgent User` user.
 
 5. **Deploy to Your Salesforce Org**
 
@@ -97,7 +101,7 @@ This action uses flight information from Salesforce and CO₂ emissions data to 
 
 2. **Adding an Action to an Agent**
 
-    Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**. Click on the **Topics** tab and **Koa Cars Sales Agent**. In the **This Topic's Actions** tab, click **New** > **Add from Asset Library**. Search for **Calculate Carbon Footprint**, select it, and click **Finish**.
+    Locate **Agents** under the **Setup** menu, click **Astro Airlines Travel Agent**, and click **Open in Builder**. Click on the **Topics** tab and **Travel Agent**. In the **This Topic's Actions** tab, click **New** > **Add from Asset Library**. Search for **Calculate Carbon Footprint**, select it, and click **Finish**.
     
 3. **Testing Your Heroku Action**
 
@@ -127,7 +131,7 @@ This action retrieves product information, including size and weight. It dynamic
 
 2. **Adding an Action to an Agent**
 
-    Locate **Agents** under the **Setup** menu, click **Koa Car Agent**, and click **Open in Builder**. Click on the **Topics** tab and **Koa Cars Sales Agent**. In the **This Topic's Actions** tab, click **New** > **Add from Asset Library**. Search for **Calculate Shipping Options**, select it, and click **Finish**.
+    Locate **Agents** under the **Setup** menu, click **Trailblazer Outfitters Service Agent**, and click **Open in Builder**. Click on the **Topics** tab and **Sales Assistant**. In the **This Topic's Actions** tab, click **New** > **Add from Asset Library**. Search for **Calculate Shipping Options**, select it, and click **Finish**.
 
 3. **Testing Your Heroku Action**
 
@@ -170,7 +174,7 @@ This action evaluates real-time car valuations from industry sources (AutoTrader
     When the Agent requests further information enter the following:
 
     ```
-    My email is johndoe@codey.com
+    My email is johnsmith@codey.com
     ```
 
     ```
