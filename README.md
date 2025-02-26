@@ -60,8 +60,6 @@ In this workshop, we're enhancing several agents with custom code written in lan
     heroku salesforce:import api-docs.yaml --org-name my-org-yourname --app tdx25-minihack-actions --client-name ActionsService
     ```
 
-    > **TEMPORARY STEP REMOVE FOR TDX:** Find the `ActionsService` under **Named Credentials** and check the **URL** field is set to `https://tdx25-minihack-actions-3b047f6da5d2.herokuapp.com/`
-
     > As per the last step, be sure to edit `my-org-yourname` in the command above.
 
     Navigate to **Heroku** under **Setup** to confirm that the application has been linked.
@@ -74,9 +72,7 @@ In this workshop, we're enhancing several agents with custom code written in lan
 
 4. **Grant Permissions to the Heroku Application**
 
-    Ensure the Agent user has permission to invoke the Heroku application imported above. Search for **Permission Set Groups** under **Setup** and open the `TDX25 Minihacks Agent Access` permission set group. Add the `ActionsService` permission set to the group.
-
-    >  **TEMPORARY STEP REMOVE FOR TDX:** If the above **Permission Set Group** does not exist in your org, locate the `ActionsService` permission set and click *Manage Assignments*, then search for and add the `EinsteinServiceAgent User` user.
+    Ensure the Agent user has permission to invoke the Heroku application imported above. Locate the `ActionsService` permission set and click *Manage Assignments*, then search for and add the `EinsteinServiceAgent User` user and assign.
 
 5. **Deploy to Your Salesforce Org**
 
