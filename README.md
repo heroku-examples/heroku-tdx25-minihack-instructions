@@ -1,7 +1,7 @@
 # TDX25 - Heroku at Camp Mini Hacks - Instructions
 
 > [!IMPORTANT]
-> These instructions will be integrated into an upcoming TDX 2025 mini-hack.
+> These instructions have now been integrated into an upcoming TDX 2025 mini-hack - please use the TDX 2025 mini hack application instead.
 
 In this workshop, we're enhancing several agents with custom code written in languages of your choice, using **Heroku** and [Heroku AppLink](https://devcenter.heroku.com/articles/getting-started-heroku-integration). This allows **Apex**, **Flow**, and **Agentforce** to perform complex, compute-intensive calculations on Heroku’s scalable managed infrastructure.
 
